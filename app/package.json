@@ -1,0 +1,10 @@
+{
+  "name": "parse-server-docker",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "parse-server": "^2.3.2",
+    "parse-server-fs-adapter": "^1.0.1"
+  }
+}

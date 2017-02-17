@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  parse-server:
+    image: ball6847/parse-server:2.3.2
+    depends_on:
+      - mongo
+      # - redis
+    ports:
+      - 1337:1337
+  mongo:
+    image: mongo:3.4.1
+  # redis:
+  #   image: redis:3-alpine
+  #   environment:
+  #     - TERM=xterm-256color
+  #   entrypoint: redis-server --appendonly yes --protected-mode no

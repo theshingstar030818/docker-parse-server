@@ -1,0 +1,124 @@
+
+  Usage: parse-server [options] <path/to/configuration.json>
+
+  Options:
+
+    -h, --help                                                             output usage information
+    --appId <appId>                                                        Your Parse Application ID
+    --masterKey <masterKey>                                                Your Parse Master Key
+    --port [port]                                                          The port to run the ParseServer. defaults to 1337.
+    --host [host]                                                          The host to serve ParseServer on. defaults to 0.0.0.0
+    --databaseURI [databaseURI]                                            The full URI to your mongodb database
+    --databaseOptions [databaseOptions]                                    Options to pass to the mongodb client
+    --collectionPrefix [collectionPrefix]                                  A collection prefix for the classes
+    --serverURL [serverURL]                                                URL to your parse server with http:// or https://.
+    --publicServerURL [publicServerURL]                                    Public URL to your parse server with http:// or https://.
+    --clientKey [clientKey]                                                Key for iOS, MacOS, tvOS clients
+    --javascriptKey [javascriptKey]                                        Key for the Javascript SDK
+    --restAPIKey [restAPIKey]                                              Key for REST calls
+    --dotNetKey [dotNetKey]                                                Key for Unity and .Net SDK
+    --webhookKey [webhookKey]                                              Key sent with outgoing webhook calls
+    --cloud [cloud]                                                        Full path to your cloud code main.js
+    --push [push]                                                          Configuration for push, as stringified JSON. See https://github.com/ParsePlatform/parse-server/wiki/Push
+    --oauth [oauth]                                                        [DEPRECATED (use auth option)] Configuration for your oAuth providers, as stringified JSON. See https://github.com/ParsePlatform/parse-server/wiki/Parse-Server-Guide#oauth
+    --auth [auth]                                                          Configuration for your authentication providers, as stringified JSON. See https://github.com/ParsePlatform/parse-server/wiki/Parse-Server-Guide#oauth
+    --fileKey [fileKey]                                                    Key for your files
+    --facebookAppIds [facebookAppIds]                                      [DEPRECATED (use auth option)]
+    --enableAnonymousUsers [enableAnonymousUsers]                          Enable (or disable) anon users, defaults to true
+    --allowClientClassCreation [allowClientClassCreation]                  Enable (or disable) client class creation, defaults to true
+    --mountPath [mountPath]                                                Mount path for the server, defaults to /parse
+    --filesAdapter [filesAdapter]                                          Adapter module for the files sub-system
+    --emailAdapter [emailAdapter]                                          Adapter module for the email sending
+    --verifyUserEmails [verifyUserEmails]                                  Enable (or disable) user email validation, defaults to false
+    --preventLoginWithUnverifiedEmail [preventLoginWithUnverifiedEmail]    Prevent user from login if email is not verified and PARSE_SERVER_VERIFY_USER_EMAILS is true, defaults to false
+    --emailVerifyTokenValidityDuration [emailVerifyTokenValidityDuration]  Email verification token validity duration
+    --accountLockout [accountLockout]                                      account lockout policy for failed login attempts
+    --passwordPolicy [passwordPolicy]                                      Password policy for enforcing password related rules
+    --appName [appName]                                                    Sets the app name
+    --loggerAdapter [loggerAdapter]                                        Adapter module for the logging sub-system
+    --customPages [customPages]                                            custom pages for password validation and reset
+    --maxUploadSize [maxUploadSize]                                        Max file size for uploads.
+    --userSensitiveFields [userSensitiveFields]                            Personally identifiable information fields in the user table the should be removed for non-authorized users.
+    --sessionLength [sessionLength]                                        Session duration, defaults to 1 year
+    --verbose [verbose]                                                    Set the logging to verbose
+    --jsonLogs [jsonLogs]                                                  Log as structured JSON objects
+    --logLevel [logLevel]                                                  Sets the level for logs
+    --logsFolder [logsFolder]                                              Folder for the logs (defaults to './logs'); set to null to disable file based logging
+    --silent [silent]                                                      Disables console output
+    --revokeSessionOnPasswordReset [revokeSessionOnPasswordReset]          When a user changes their password, either through the reset password email or while logged in, all sessions are revoked if this is true. Set to false if you don't want to revoke sessions.
+    --schemaCacheTTL [schemaCacheTTL]                                      The TTL for caching the schema for optimizing read/write operations. You should put a long TTL when your DB is in production. default to 0; disabled.
+    --enableSingleSchemaCache [enableSingleSchemaCache]                    Use a single schema cache shared across requests. Reduces number of queries made to _SCHEMA. Defaults to false, i.e. unique schema cache per request.
+    --cluster [cluster]                                                    Run with cluster, optionally set the number of processes default to os.cpus().length
+    --liveQuery [liveQuery]                                                parse-server's LiveQuery configuration object
+    --liveQuery.classNames [liveQuery.classNames]                          parse-server's LiveQuery classNames
+    --liveQuery.redisURL [liveQuery.redisURL]                              parse-server's LiveQuery redisURL
+    --startLiveQueryServer [startLiveQueryServer]                          Starts the liveQuery server
+    --liveQueryPort [liveQueryPort]                                        Specific port to start the live query server
+    --liveQueryServerOptions [liveQueryServerOptions]                      Live query server configuration options (will start the liveQuery server)
+
+  Configure From Environment:
+
+    $ PARSE_SERVER_APPLICATION_ID='appId'
+    $ PARSE_SERVER_MASTER_KEY='masterKey'
+    $ PORT='port'
+    $ PARSE_SERVER_HOST='host'
+    $ PARSE_SERVER_DATABASE_URI='databaseURI'
+    $ PARSE_SERVER_DATABASE_OPTIONS='databaseOptions'
+    $ PARSE_SERVER_COLLECTION_PREFIX='collectionPrefix'
+    $ PARSE_SERVER_URL='serverURL'
+    $ PARSE_PUBLIC_SERVER_URL='publicServerURL'
+    $ PARSE_SERVER_CLIENT_KEY='clientKey'
+    $ PARSE_SERVER_JAVASCRIPT_KEY='javascriptKey'
+    $ PARSE_SERVER_REST_API_KEY='restAPIKey'
+    $ PARSE_SERVER_DOT_NET_KEY='dotNetKey'
+    $ PARSE_SERVER_WEBHOOK_KEY='webhookKey'
+    $ PARSE_SERVER_CLOUD_CODE_MAIN='cloud'
+    $ PARSE_SERVER_PUSH='push'
+    $ PARSE_SERVER_OAUTH_PROVIDERS='oauth'
+    $ PARSE_SERVER_AUTH_PROVIDERS='auth'
+    $ PARSE_SERVER_FILE_KEY='fileKey'
+    $ PARSE_SERVER_FACEBOOK_APP_IDS='facebookAppIds'
+    $ PARSE_SERVER_ENABLE_ANON_USERS='enableAnonymousUsers'
+    $ PARSE_SERVER_ALLOW_CLIENT_CLASS_CREATION='allowClientClassCreation'
+    $ PARSE_SERVER_MOUNT_PATH='mountPath'
+    $ PARSE_SERVER_FILES_ADAPTER='filesAdapter'
+    $ PARSE_SERVER_EMAIL_ADAPTER='emailAdapter'
+    $ PARSE_SERVER_VERIFY_USER_EMAILS='verifyUserEmails'
+    $ PARSE_SERVER_PREVENT_LOGIN_WITH_UNVERIFIED_EMAIL='preventLoginWithUnverifiedEmail'
+    $ PARSE_SERVER_EMAIL_VERIFY_TOKEN_VALIDITY_DURATION='emailVerifyTokenValidityDuration'
+    $ PARSE_SERVER_ACCOUNT_LOCKOUT='accountLockout'
+    $ PARSE_SERVER_PASSWORD_POLICY='passwordPolicy'
+    $ PARSE_SERVER_APP_NAME='appName'
+    $ PARSE_SERVER_LOGGER_ADAPTER='loggerAdapter'
+    $ PARSE_SERVER_CUSTOM_PAGES='customPages'
+    $ PARSE_SERVER_MAX_UPLOAD_SIZE='maxUploadSize'
+    $ PARSE_SERVER_SESSION_LENGTH='sessionLength'
+    $ VERBOSE='verbose'
+    $ JSON_LOGS='jsonLogs'
+    $ PARSE_SERVER_LOG_LEVEL='logLevel'
+    $ PARSE_SERVER_LOGS_FOLDER='logsFolder'
+    $ PARSE_SERVER_REVOKE_SESSION_ON_PASSWORD_RESET='revokeSessionOnPasswordReset'
+    $ PARSE_SERVER_SCHEMA_CACHE_TTL='schemaCacheTTL'
+    $ PARSE_SERVER_ENABLE_SINGLE_SCHEMA_CACHE='enableSingleSchemaCache'
+    $ PARSE_SERVER_CLUSTER='cluster'
+    $ PARSE_SERVER_LIVE_QUERY_OPTIONS='liveQuery'
+
+  Get Started guide:
+
+    Please have a look at the get started guide!
+    https://github.com/ParsePlatform/parse-server/wiki/Parse-Server-Guide
+
+
+  Usage with npm start
+
+    $ npm start -- path/to/config.json
+    $ npm start -- --appId APP_ID --masterKey MASTER_KEY --serverURL serverURL
+    $ npm start -- --appId APP_ID --masterKey MASTER_KEY --serverURL serverURL
+
+
+  Usage:
+
+    $ parse-server path/to/config.json
+    $ parse-server -- --appId APP_ID --masterKey MASTER_KEY --serverURL serverURL
+    $ parse-server -- --appId APP_ID --masterKey MASTER_KEY --serverURL serverURL
+
