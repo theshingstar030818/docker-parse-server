@@ -19,13 +19,17 @@ version: '2'
 
 services:
   parse-server:
-    image: ball6847/parse-server
+    image: ball6847/parse-server:2.3.2
     depends_on:
       - mongo
+    environment:
+      - PARSE_SERVER_APPLICATION_ID=appId
+      - PARSE_SERVER_MASTER_KEY=masterKey
+      - PARSE_SERVER_DATABASE_URI=mongodb://mongo:27017/db
     ports:
       - 1337:1337
   mongo:
-    image: mongo:3.4.1
+    image: mongo
 ```
 
 Bring up the services.
