@@ -5,17 +5,12 @@ services:
     image: ball6847/parse-server:2.3.2
     depends_on:
       - mongo
-      # - redis
     environment:
-      - PARSE_SERVER_APPLICATION_ID=appId
+      - PARSE_SERVER_APPLICATION_ID=myAppId
       - PARSE_SERVER_MASTER_KEY=masterKey
       - PARSE_SERVER_DATABASE_URI=mongodb://mongo:27017/db
+      - PARSE_SERVER_MOUNT_PATH=/parse
     ports:
       - 1337:1337
   mongo:
-    image: mongo:3.4.1
-  # redis:
-  #   image: redis:3-alpine
-  #   environment:
-  #     - TERM=xterm-256color
-  #   entrypoint: redis-server --appendonly yes --protected-mode no
+    image: mongo
