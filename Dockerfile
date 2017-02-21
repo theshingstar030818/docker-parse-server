@@ -49,10 +49,19 @@ ENV PARSE_SERVER_VERSION="2.3.2" \
     PARSE_SERVER_SCHEMA_CACHE_TTL="" \
     PARSE_SERVER_ENABLE_SINGLE_SCHEMA_CACHE="" \
     PARSE_SERVER_CLUSTER="" \
-    PARSE_SERVER_LIVE_QUERY_OPTIONS=""
+    PARSE_SERVER_LIVE_QUERY_OPTIONS="" \
+    PARSE_SERVER_LIVE_QUERY_CLASSNAMES="" \
+    PARSE_SERVER_LIVE_QUERY_REDIS_URL=""
+
+# For LiveQuery Server - You need to specify these variables
+
+# PARSE_SERVER_LIVE_QUERY_CLASSNAMES (classes to allow livequery, in array format or comma separated eg. Project,Task)
+# PARSE_SERVER_LIVE_QUERY_REDIS_URL (url to redis server eg. redis://redis:6379)
 
 RUN npm install -g parse-server@2.3.2
 
+ADD entrypoint.sh /entrypoint.sh
+
 EXPOSE 1337
 
-ENTRYPOINT [ "parse-server" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
