@@ -42,5 +42,4 @@ Your parse-server endpoint now available at http://localhost:1337/parse
 
 ## Todo
 
-- Publish to DockerHub.
 - More detail about custom configuration.
