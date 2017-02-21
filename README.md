@@ -1,5 +1,4 @@
-[![](https://images.microbadger.com/badges/image/ball6847/parse-server.svg)](https://microbadger.com/images/ball6847/parse-server "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/ball6847/parse-server.svg)](https://microbadger.com/images/ball6847/parse-server "Get your own version badge on microbadger.com")
+
 [![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/ball6847/parse-server/)
 
 # Docker Image for parse-server
