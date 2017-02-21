@@ -1,6 +1,6 @@
 # Docker Image for parse-server
 
-Quickly up and running parse-server using docker (Will be published to DockerHub shortly)
+Quickly up and running parse-server using docker
 
 ## Build
 
